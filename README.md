@@ -56,7 +56,7 @@ A detailed usage guide can be found here : [Telegraph Page](https://telegra.ph/T
 ## Credits
 
 - [Paul Larsen](https://github.com/PaulSonOfLars) for his [gotgbot](https://github.com/PaulSonOfLars/gotgbot) Library
-- Well, [I wanna thank me](https://www.google.com/search?q=i+wanna+thank+me), for my [Telegraph](https://github.com/StarkBotsIndustries/telegraph) Library
+- Well, [I wanna thank me](https://github.com/StarkBotsIndustries), for my [Telegraph](https://github.com/StarkBotsIndustries/telegraph) Library
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
