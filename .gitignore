@@ -1,0 +1,7 @@
+/*.env
+/*.txt
+/*.jpg
+/run.sh
+vscode/
+.idea/
+.gitattributes

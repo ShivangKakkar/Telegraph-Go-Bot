@@ -1,0 +1,38 @@
+{
+    "name": "Telegraph Go Bot",
+    "description": "Telegram bot to do everything related to Telegraph",
+    "logo": "",
+    "keywords": [
+      "telegram",
+      "bot",
+      "go",
+      "telegraph"
+    ],
+      "buildpacks": [{
+      "url": "heroku/go"
+    }],
+    "formation": {
+      "worker": {
+        "quantity": 1,
+        "size": "free"
+      }
+    },
+    "addons": [
+        {
+           "plan": "heroku-postgresql"
+        }
+     ],
+    "repository": "https://github.com/StarkBotsIndustries/TelegraphGoBot",
+    "env": {
+      "TOKEN": {
+        "description": "Obtain a Telegram bot token by contacting @BotFather",
+        "required": true,
+        "value": ""
+      },
+      "OWNER_ID": {
+        "description": "Your Telegram ID",
+        "required": true,
+        "value": ""
+      }
+    }
+  }

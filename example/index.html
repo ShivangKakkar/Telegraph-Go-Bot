@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Only the <body> element matters. Others are ignored -->
+  <title>Stark Bots</title>
+</head>
+
+<body>
+  <b>Content List</b>
+  <br>
+  <ul>
+    <li><a href="#First-Meetup">First Meetup</a></li>
+    <li><a href="#What-is-Account-Number?">What is Account Number?</a></li>
+    <li><a href="#What-is-Short-Name?">What is Short Name?</a></li>
+    <li><a href="#What-is-Author-Name?">What is Author Name?</a></li>
+    <li><a href="#What-is-Author-URL?">What is Author URL?</a></li>
+    <li><a href="#What-is-Page-Path">What is Page Path?</a></li>
+    <li><a href="#Creating-Account">Creating Account</a></li>
+    <li><a href="#Creating-Pages">Creating Pages</a></li>
+    <li>
+      <a href="#Managing-and-Editing-Accounts">Managing and Editing Accounts</a>
+    </li>
+    <li><a href="#Editing-Existing-Pages">Editing Existing Pages</a></li>
+    <li>
+      <a href="#Listing-Pages-and-Accounts">Listing Pages and Accounts</a>
+    </li>
+    <li><a href="#Getting-Account-Info">Getting Account Info</a></li>
+    <li><a href="#Adding-an-Existing-Account">Adding an Existing Account</a></li>
+    <li><a href="#Removing-Account">Removing Account</a></li>
+    <li><a href="#Getting-Views-of-a-Page">Getting Views of a Page</a></li>
+    <li><a href="#Examples">Examples</a></li>
+    <li><a href="#Source-Code">Source Code</a></li>
+    <li><a href="#Support">Support and Community</a></li>
+
+  </ul>
+
+  <h3>First Meetup</h3>
+  <p>
+    When you will message the bot for the first time, it'll generate a new account for you. It is set as the default
+    account and it's account number is considered zero.
+  </p>
+  <h4>What is Account Number?</h4>
+  <p>
+    Account number helps the bot identify the targeted account. You can see the account numbers by sending
+    <i>/accounts</i> command. Account number starts with zero where zero is the default account, which is created
+    automatically.
+  </p>
+  <h4>What is Short Name?</h4>
+  <p>
+    Every Telegraph account has a short name. It is <b>not unique</b> for each account, i.e, you can use same short
+    name for multiple accounts. It can be anything, like your own name and can have multiple words, for example -
+    <i>Stark
+      Bots</i>. This helps users differentiate multiple accounts. Also, it is private and only shown to you.
+  </p>
+  <h4>What is Author Name?</h4>
+  <p>
+    Author Name is shown below telegraph page's title. It is visible to everyone.
+  </p>
+  <h4>What is Author URL?</h4>
+  <p>
+    Author URL is usually a link to Author's profile, but it can be any URL. It is opened when user clicks on author
+    name below their page's title.
+  </p>
+  <h4>What is Page Path?</h4>
+  <p>
+    Page Path is the path to Telegraph Page. For example, path to <i>https://telegra.ph/My-Page-01-01</i> is
+    <i>My-Page-01-01</i>. It is needed to Edit Pages or to Get Page Views.
+  </p>
+  <h3>Creating Account</h3>
+  <p>
+    Creating Account is very easy. Just send <i>/create ShortName</i> or <i>/new ShortName</i> to create one. Example
+    <i>/create Stark Programmer</i>.
+  </p>
+  <h3>Creating Pages</h3>
+  <p>
+    Creating Pages isn't hard either. You need three things. The account number, page title and HTML content. First
+    send your HTML content as text message or HTML document. Then reply it with <i>/page account_number page_title</i>.
+    Example <i>/page 2 My Last Page</i>
+  </p>
+  <h3>Managing and Editing Accounts</h3>
+  <p>
+    After creating a new account, you can also edit it's values. There are three things that are editable.
+  </p>
+  <ol>
+    <li>/editshortname - To Edit Short Name</li>
+    <li>/editauthorname - To Edit Author Name</li>
+    <li>/editauthorurl - To Edit Author URL</li>
+  </ol>
+  <p>
+    Just pass the account number and value. Example <i>/editauthorname 3 Sansa Stark</i>
+  </p>
+  <h3>Editing Existing Pages</h3>
+  <p>
+    You can edit an existing page using the <i>/editpage</i> command. You need to pass the account number, page path and
+    page title. Example <i>/editpage 0 My-Other-Page-34-35 My Other Page</i> Note that the previous title can be changed
+    by passing
+    different title in command, otherwise pass the previous one.
+  </p>
+  <h3>Listing Pages and Accounts</h3>
+  <p>
+    You can list your existing pages using <i>/pages</i> command and accounts using <i>/accounts</i> command. Make sure
+    to pass the account number while using <i>/pages</i> command.
+  </p>
+  <h3>Getting Account Info</h3>
+  <p>
+    You can get full account info using <i>/get account_number</i>. For example:
+    <i>/get 1</i>
+  </p>
+  <h3>Getting Views of a Page</h3>
+  <p>
+    You can get views of a particular page using <i>/views</i> command. You need to pass the page path. For example:
+    <i>/views My-Second-Page-02-21</i>
+  </p>
+  <h3>Adding an Existing Account</h3>
+  <p>
+    You can add an already existing account using <i>/add access_token</i>. For example:
+    <i>/add abcdefghijklmnopqrstuvwxyz</i>
+  </p>
+  <h3>Removing Account</h3>
+  <p>
+    You can remove unnecessary accounts from our database using <i>/remove account_number</i>, for example: <i>/remove
+      3</i>. Note that your account is not actually deleted. It is just removed from bot's database. Telegraph accounts
+    cannot be deleted.
+  </p>
+  <h3>Examples</h3>
+  <p>
+    You can get the HTML document of this very Telegraph page from our <a
+      href="https://github.com/StarkBotsIndustries/Telegraph-Go-Bot/tree/master/example/index.html">Github
+      Repository</a>. It can serve as an example for you.
+  </p>
+  <h3>Source Code</h3>
+  <p>
+    Source Code for this bot can be found on our <a
+      href="https://github.com/StarkBotsIndustries/Telegraph-Go-Bot">GitHub
+      Repository</a>.
+  </p>
+  <h3>Support</h3>
+  <p>
+    For any questions, feel free to ask questions on our <a href="https://t.me/StarkBotsChat">support group</a>
+    <br>For more bots visit our <a href="https://t.me/StarkBots">Support Channel</a>
+  </p>
+</body>
+
+</html>
