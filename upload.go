@@ -26,11 +26,7 @@ func upload(b *gotgbot.Bot, ctx *ext.Context) error {
 	}
 	userID := ctx.EffectiveMessage.From.Id
 	currentStates := states[userID]
-	if currentStates == nil {
-		states[userID] = []string{str}
-	} else {
-		states[userID] = append(currentStates, str)
-	}
+	states[userID] = append(currentStates, Img{Link: str, Caption: ctx.EffectiveMessage.Caption})
 	_, err := ctx.EffectiveMessage.Reply(
 		b,
 		fmt.Sprintf("File is ready to Upload. Where do you want me to upload? \n\nIf you don't understand this, just tap on the first option. \n\nTotal Files : %v", len(states[userID])),

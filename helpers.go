@@ -135,10 +135,10 @@ func checkIfLengthy(s string, b *gotgbot.Bot, ctx *ext.Context) bool {
 	return false
 }
 
-func toImgTag(a []string) string {
+func toImgTag(a []Img) string {
 	str := ""
 	for _, l := range a { // SayNoToIJ
-		str += fmt.Sprintf(`<img src="%v">`, l)
+		str += fmt.Sprintf(`<img src="%v"><figcaption>%v</figcaption>`, l.Link, l.Caption)
 	}
 	return str
 }

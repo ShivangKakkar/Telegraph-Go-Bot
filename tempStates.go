@@ -9,8 +9,13 @@ import (
 	"github.com/StarkBotsIndustries/telegraph/v2"
 )
 
+type Img struct {
+	Link    string
+	Caption string
+}
+
 // UserID : Array of Links
-var states = map[int64][]string{}
+var states = map[int64][]Img{}
 
 var uploadButtons = [][]gotgbot.InlineKeyboardButton{
 	{{Text: "Upload as Separate Image Files", CallbackData: "direct"}},
@@ -19,7 +24,11 @@ var uploadButtons = [][]gotgbot.InlineKeyboardButton{
 
 func directUploadCB(b *gotgbot.Bot, ctx *ext.Context) error {
 	cb := ctx.Update.CallbackQuery
-	links := states[cb.From.Id]
+	imgs := states[cb.From.Id]
+	links := []string{}
+	for _, img := range imgs {
+		links = append(links, img.Link)
+	}
 	if links == nil {
 		_, _, err := cb.Message.EditText(b, "You currently have no media in state. Please send again.", nil)
 		if err != nil {
@@ -33,7 +42,7 @@ func directUploadCB(b *gotgbot.Bot, ctx *ext.Context) error {
 	}
 	_, err := b.SendMessage(cb.From.Id, strings.Join(links, "\n\n"), nil)
 	// Change the temp state
-	states[cb.From.Id] = []string{}
+	states[cb.From.Id] = []Img{}
 	if err != nil {
 		return fmt.Errorf("failed to send link in directUploadCB: %w", err)
 	}
@@ -84,7 +93,7 @@ func pageUploadCB(b *gotgbot.Bot, ctx *ext.Context) error {
 		return fmt.Errorf("failed to send pageUploadCB: %w", err)
 	}
 	// Change the temp state
-	states[cb.From.Id] = []string{}
+	states[cb.From.Id] = []Img{}
 	_, err = cb.Answer(b, &gotgbot.AnswerCallbackQueryOpts{Text: "Done!"})
 	if err != nil {
 		return fmt.Errorf("failed to answer callback query: %w", err)
