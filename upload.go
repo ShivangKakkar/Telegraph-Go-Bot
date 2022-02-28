@@ -33,7 +33,7 @@ func upload(b *gotgbot.Bot, ctx *ext.Context) error {
 	}
 	_, err := ctx.EffectiveMessage.Reply(
 		b,
-		fmt.Sprintf("File is ready to Upload. Where do you want me to upload? \n\nIf you don't understand this, just tap on Direct Upload. \n\nPresent Files : %v", len(states[userID])),
+		fmt.Sprintf("File is ready to Upload. Where do you want me to upload? \n\nIf you don't understand this, just tap on the first option. \n\nTotal Files : %v", len(states[userID])),
 		&gotgbot.SendMessageOpts{
 			ReplyMarkup: gotgbot.InlineKeyboardMarkup{
 				InlineKeyboard: uploadButtons,

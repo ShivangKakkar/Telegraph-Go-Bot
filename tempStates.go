@@ -27,6 +27,10 @@ func directUploadCB(b *gotgbot.Bot, ctx *ext.Context) error {
 		}
 		return nil
 	}
+	if links == nil { // Weird?
+		b.SendMessage(cb.From.Id, "An error has occurred. Please try again.", nil)
+		return fmt.Errorf("link is empty")
+	}
 	_, err := b.SendMessage(cb.From.Id, strings.Join(links, "\n\n"), nil)
 	// Change the temp state
 	states[cb.From.Id] = []string{}
@@ -48,14 +52,24 @@ func pageUploadCB(b *gotgbot.Bot, ctx *ext.Context) error {
 		return nil
 	}
 	str := toImgTag(links)
-	n := cb.From.FirstName
-	if cb.From.Username != "" {
-		n = cb.From.Username
+	token := GetUser(cb.From.Id).Account
+	acc, _ := telegraph.GetAccountInfo(
+		telegraph.GetAccountInfoOpts{
+			AccessToken: token,
+			Fields:      []string{"author_name", "author_url"},
+		},
+	)
+	t := titles[cb.From.Id]
+	if t == "" {
+		t = "Photos By " + cb.From.FirstName
+	} else {
+		titles[cb.From.Id] = ""
 	}
 	page, err := telegraph.CreatePage(telegraph.CreatePageOpts{
 		AccessToken: GetUser(cb.From.Id).Account,
-		Title:       cb.From.FirstName,
-		AuthorName:  n,
+		Title:       t,
+		AuthorName:  acc.AuthorName,
+		AuthorURL:   acc.AuthorURL,
 		HTMLContent: str,
 	})
 	if err != nil {
@@ -77,9 +91,3 @@ func pageUploadCB(b *gotgbot.Bot, ctx *ext.Context) error {
 	}
 	return nil
 }
-
-// Help, About Message
-// Guide how to use
-
-// Default Account
-// New Account on message

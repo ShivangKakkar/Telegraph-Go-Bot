@@ -30,7 +30,7 @@ func editPage(b *gotgbot.Bot, ctx *ext.Context) error {
 	pageTitle := strings.Join(args[2:], " ")
 	accountNumber, con, err := getToken(accountNumber, b, ctx)
 	if err != nil {
-		return fmt.Errorf("failed to send editPage tokens message : %w", err)
+		return fmt.Errorf("failed to get token in editPage func : %w", err)
 	}
 	if con {
 		return nil
@@ -51,7 +51,7 @@ func editPage(b *gotgbot.Bot, ctx *ext.Context) error {
 			AuthorURL:   acc.AuthorURL,
 		})
 	if err != nil {
-		_, err := ctx.EffectiveMessage.Reply(b, "failed to edit Page: "+err.Error(), &gotgbot.SendMessageOpts{ParseMode: "<code>"})
+		_, err := ctx.EffectiveMessage.Reply(b, "failed to edit Page: "+err.Error(), &gotgbot.SendMessageOpts{ParseMode: "html"})
 		if err != nil {
 			return fmt.Errorf("failed to send editPage error message : %w", err)
 		}

@@ -43,6 +43,7 @@ func main() {
 	dispatcher.AddHandler(handlers.NewCommand("guide", guide))
 	dispatcher.AddHandler(handlers.NewCommand("html", html))
 	dispatcher.AddHandler(handlers.NewCommand("stats", stats)) // Owner Only
+	dispatcher.AddHandler(handlers.NewCommand("title", setTitle))
 	// Accounts Handlers
 	dispatcher.AddHandler(handlers.NewCommand("create", newAccount))
 	dispatcher.AddHandler(handlers.NewCommand("new", newAccount))
