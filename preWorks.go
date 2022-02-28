@@ -14,9 +14,17 @@ import (
 func preWorks(b *gotgbot.Bot, ctx *ext.Context) error {
 	id := ctx.EffectiveMessage.From.Id
 	AddUser(id)
-	c, _ := strconv.ParseInt(os.Getenv("MUST_JOIN"), 10, 64)
+	if (os.Getenv("MUST_JOIN")) == "" {
+		return nil
+	}
+	c, err := strconv.ParseInt(os.Getenv("MUST_JOIN"), 10, 64)
+	if err != nil {
+		fmt.Printf(parseIntFail, "MUST_JOIN")
+		return nil
+	}
 	cm, err := b.GetChatMember(c, id)
 	if err != nil {
+		fmt.Println("Failed to send must join message. Please check if MUST_JOIN is a valid Chat ID")
 		return nil
 	}
 	if cm.GetStatus() == "left" {

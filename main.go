@@ -17,10 +17,6 @@ import (
 func main() {
 	// Needed for Local Deploys
 	godotenv.Load()
-	// if err != nil {
-	// 	fmt.Println("Error loading .env file")
-	// }
-
 	b, _ := gotgbot.NewBot(os.Getenv("TOKEN"), &gotgbot.BotOpts{
 		Client:      http.Client{},
 		GetTimeout:  gotgbot.DefaultGetTimeout,
@@ -30,12 +26,12 @@ func main() {
 		ErrorLog: nil,
 		DispatcherOpts: ext.DispatcherOpts{
 			Error: func(b *gotgbot.Bot, _ *ext.Context, err error) ext.DispatcherAction {
-				logTg(b, "An error occurred while handling update:"+err.Error())
+				logTg(b, "An error occurred while handling update : "+err.Error())
 				return ext.DispatcherActionNoop
 			},
 			Panic:       nil,
 			ErrorLog:    nil,
-			MaxRoutines: 0,
+			MaxRoutines: 6, // Experimental
 		},
 	})
 	// Dispatcher
@@ -47,7 +43,6 @@ func main() {
 	dispatcher.AddHandler(handlers.NewCommand("guide", guide))
 	dispatcher.AddHandler(handlers.NewCommand("html", html))
 	dispatcher.AddHandler(handlers.NewCommand("stats", stats)) // Owner Only
-	dispatcher.AddHandler(handlers.NewCommand("users", users)) // Owner Only
 	// Accounts Handlers
 	dispatcher.AddHandler(handlers.NewCommand("create", newAccount))
 	dispatcher.AddHandler(handlers.NewCommand("new", newAccount))
@@ -85,4 +80,6 @@ func main() {
 	}
 	fmt.Printf("%s is now running...\n", b.User.Username)
 	updater.Idle()
+	updater.Stop() // Experimental for Production?
+	fmt.Printf("%s is now exiting...\n", b.User.Username)
 }

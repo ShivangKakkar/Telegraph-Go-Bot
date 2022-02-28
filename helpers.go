@@ -13,6 +13,8 @@ import (
 	"github.com/StarkBotsIndustries/telegraph/v2"
 )
 
+var parseIntFail = "Could not parse %v var. Please check if it's a valid Integer and a valid Chat ID \n"
+
 func getString(ctx *ext.Context) string {
 	args := strings.SplitN(strings.TrimSpace(ctx.EffectiveMessage.Text), " ", 2)
 	return args[1]

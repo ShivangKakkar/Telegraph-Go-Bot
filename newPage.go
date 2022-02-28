@@ -34,14 +34,19 @@ func newPage(b *gotgbot.Bot, ctx *ext.Context) error {
 	if con {
 		return nil
 	}
+	acc, _ := telegraph.GetAccountInfo(
+		telegraph.GetAccountInfoOpts{
+			AccessToken: accountNumber,
+			Fields:      []string{"author_url", "author_name"},
+		})
 	opts := telegraph.CreatePageOpts{
 		AccessToken: accountNumber,
 		Title:       pageTitle,
-		Content:     telegraph.HTMLToNode(content),
+		HTMLContent: content,
+		AuthorName:  acc.AuthorName,
+		AuthorURL:   acc.AuthorURL,
 	}
-	// pg, err := telegraph.CreatePage(opts)
-	pg, err := telegraph.Post("createPage", opts)
-	// pg, err := telegraph.Get("createPage", opts)
+	pg, err := telegraph.CreatePage(opts)
 	if err != nil {
 		_, err := ctx.EffectiveMessage.Reply(b, "An error occurred while creating page: "+err.Error(), &gotgbot.SendMessageOpts{ParseMode: "html"})
 		if err != nil {

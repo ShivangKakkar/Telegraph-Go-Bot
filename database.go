@@ -118,6 +118,7 @@ func UsersCount() int {
 	return len(GetAllUsers())
 }
 
+// ToDo: Rename Column ID (id) to UserID (user_id)
 type User struct {
 	bun.BaseModel `bun:"table:users,alias:u"`
 	ID            int64    `bun:",pk"`

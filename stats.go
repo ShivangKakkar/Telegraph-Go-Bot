@@ -10,34 +10,22 @@ import (
 )
 
 func stats(b *gotgbot.Bot, ctx *ext.Context) error {
-	o, _ := strconv.ParseInt(os.Getenv("OWNER_ID"), 10, 64)
+	if os.Getenv("OWNER_ID") == "" {
+		fmt.Println("Set OWNER_ID to use this command.")
+		return nil
+	}
+	o, err := strconv.ParseInt(os.Getenv("OWNER_ID"), 10, 64)
+	if err != nil {
+		fmt.Printf(parseIntFail, "OWNER_ID")
+		return nil
+	}
 	if ctx.EffectiveMessage.From.Id != o {
 		return nil
 	}
 	c := UsersCount()
-	_, err := ctx.EffectiveMessage.Reply(b, fmt.Sprintf("Total Users : %v", c), &gotgbot.SendMessageOpts{})
+	_, err = ctx.EffectiveMessage.Reply(b, fmt.Sprintf("Total Users : %v", c), &gotgbot.SendMessageOpts{})
 	if err != nil {
 		return fmt.Errorf("failed to send removeAccount message: %w", err)
-	}
-	return nil
-}
-
-func users(b *gotgbot.Bot, ctx *ext.Context) error {
-	o, _ := strconv.ParseInt(os.Getenv("OWNER_ID"), 10, 64)
-	if ctx.EffectiveMessage.From.Id != o {
-		return nil
-	}
-	users := GetAllUsers()
-	list := fmt.Sprintf("<b>Users [%v]</b> \n\n", len(users)) // list is equal to string :)
-	for i, user := range users {
-		id := user.ID
-		x, _ := b.GetChatMember(id, id)
-		u := x.GetUser()
-		list += fmt.Sprintf("%v) <a href='tg://user?id=%v'>%v</a> [<code>%v</code>]\n", i+1, u.Id, u.FirstName, u.Id)
-	}
-	_, err := ctx.EffectiveMessage.Reply(b, list, &gotgbot.SendMessageOpts{ParseMode: "html"})
-	if err != nil {
-		return fmt.Errorf("failed to send listUsers message: %w", err)
 	}
 	return nil
 }

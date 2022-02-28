@@ -1,7 +1,7 @@
 github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.6 h1:MoFt/Ff7+IX9Qq/w67xHV3UFSyhbctjHhd/pq+ujQr0=
 github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.6/go.mod h1:r815fYWTudnU9JhtsJAxUtuV7QrSgKpChJkfTSMFpfg=
-github.com/StarkBotsIndustries/telegraph/v2 v2.0.0-beta.1 h1:oHEWIfM/Zyg9VKtVGpKutyQUFiQj7w9xjeif9rKjTjo=
-github.com/StarkBotsIndustries/telegraph/v2 v2.0.0-beta.1/go.mod h1:l0W+gNxeRdh11dN85VyPvN5c3onGnwAvxO9N5KWDwAE=
+github.com/StarkBotsIndustries/telegraph/v2 v2.0.0 h1:TvQxwE2QXT3BcFE8SVDy46ibz8c+t1gXjAq5uCFKtjA=
+github.com/StarkBotsIndustries/telegraph/v2 v2.0.0/go.mod h1:l0W+gNxeRdh11dN85VyPvN5c3onGnwAvxO9N5KWDwAE=
 github.com/anaskhan96/soup v1.2.5 h1:V/FHiusdTrPrdF4iA1YkVxsOpdNcgvqT1hG+YtcZ5hM=
 github.com/anaskhan96/soup v1.2.5/go.mod h1:6YnEp9A2yywlYdM4EgDz9NEHclocMepEtku7wg6Cq3s=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -44,8 +44,8 @@ golang.org/x/sys v0.0.0-20210423082822-04245dca01da/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220114195835-da31bd327af9/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
-golang.org/x/sys v0.0.0-20220209214540-3681064d5158 h1:rm+CHSpPEEW2IsXUib1ThaHIjuBVZjxNgSKmBLFfD4c=
-golang.org/x/sys v0.0.0-20220209214540-3681064d5158/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.0.0-20220224120231-95c6836cb0e7 h1:BXxu8t6QN0G1uff4bzZzSkpsax8+ALqTGUtz08QrV00=
+golang.org/x/sys v0.0.0-20220224120231-95c6836cb0e7/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
 golang.org/x/term v0.0.0-20210927222741-03fcf44c2211/go.mod h1:jbD1KX2456YbFQfuXm/mYQcufACuNUgVhRMnK/tPxf8=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=

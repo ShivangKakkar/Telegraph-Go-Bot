@@ -31,7 +31,7 @@
       },
       "OWNER_ID": {
         "description": "Your Telegram ID",
-        "required": true,
+        "required": false,
         "value": ""
       }
     }

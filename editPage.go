@@ -35,7 +35,21 @@ func editPage(b *gotgbot.Bot, ctx *ext.Context) error {
 	if con {
 		return nil
 	}
-	pg, err := telegraph.EditPage(telegraph.EditPageOpts{Path: pagePath, AccessToken: accountNumber, Title: pageTitle, HTMLContent: content})
+	acc, _ := telegraph.GetAccountInfo(
+		telegraph.GetAccountInfoOpts{
+			AccessToken: accountNumber,
+			Fields:      []string{"author_url", "author_name"},
+		})
+
+	pg, err := telegraph.EditPage(
+		telegraph.EditPageOpts{
+			Path:        pagePath,
+			AccessToken: accountNumber,
+			Title:       pageTitle,
+			HTMLContent: content,
+			AuthorName:  acc.AuthorName,
+			AuthorURL:   acc.AuthorURL,
+		})
 	if err != nil {
 		_, err := ctx.EffectiveMessage.Reply(b, "failed to edit Page: "+err.Error(), &gotgbot.SendMessageOpts{ParseMode: "<code>"})
 		if err != nil {
