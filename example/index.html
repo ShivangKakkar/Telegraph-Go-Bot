@@ -29,7 +29,10 @@
     <li><a href="#Adding-an-Existing-Account">Adding an Existing Account</a></li>
     <li><a href="#Removing-Account">Removing Account</a></li>
     <li><a href="#Getting-Views-of-a-Page">Getting Views of a Page</a></li>
-    <li><a href="#Examples">Examples</a></li>
+    <li><a href="#Uploading-Images">Uploading Images</a></li>
+    <li><a href="#Example-of-HTML">Example of HTML</a></li>
+    <li><a href="#Allowed-HTML">Allowed HTML</a></li>
+    <li><a href="#Important-HTML-Tips">Important HTML Tips</a></li>
     <li><a href="#Source-Code">Source Code</a></li>
     <li><a href="#Support">Support and Community</a></li>
 
@@ -123,11 +126,35 @@
       3</i>. Note that your account is not actually deleted. It is just removed from bot's database. Telegraph accounts
     cannot be deleted.
   </p>
-  <h3>Examples</h3>
+  <h3>Uploading Images</h3>
+  <p>You can upload images to Telegraph in two ways.</p>
+  <p>First one is, <b>Direct Upload</b> which will give you a direct link back to the single image.</p>
+  <p>Second one is <b>Uploading as a Telegraph Page</b>&nbsp;. This will generate a single Telegraph page of all the
+    images.
+    Set custom title using <i>/title</i> command. To set caption for images, send an image message with some caption.
+    Bot will copy
+    it and paste that below your image.</p>
+  <h3>Example of HTML</h3>
   <p>
-    You can get the HTML document of this very Telegraph page from our <a
+    You can get the HTML document of this Telegraph page from our <a
       href="https://github.com/StarkBotsIndustries/Telegraph-Go-Bot/tree/master/example/index.html">Github
       Repository</a>. It can serve as an example for you.
+  </p>
+  <h3>Allowed HTML</h3>
+  <p>
+    <b>Available HTML Tags</b>: a, aside, b, blockquote, br, code, em, figcaption, figure, h3, h4, hr, i, iframe, img,
+    li, ol, p, pre, s, strong, u, ul, video
+  </p>
+  <p>
+    <b>Available HTML Attributes</b>: href, src
+  </p>
+  <h3>Important HTML Tips</h3>
+  <p>
+    <b>Content List</b>: Just create hyperlinks to the subsections using the same exact titles with "-" instead of
+    space. It's case-sensitive so be careful.<br><br>
+    <b>Images</b>: Use the &lt;img&gt; tag to embed images.<br><br>
+    <b>Videos</b>: Use the &lt;video&gt; tag to embed videos.<br><br>
+    <b>Empty/New Line</b>: Use the &lt;br&gt; tag to add empty line.
   </p>
   <h3>Source Code</h3>
   <p>
