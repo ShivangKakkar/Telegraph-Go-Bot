@@ -20,7 +20,7 @@ func getViews(b *gotgbot.Bot, ctx *ext.Context) error {
 	pagePath := args[0]
 	pg, err := telegraph.GetViews(telegraph.GetViewsOpts{Path: pagePath})
 	if err != nil {
-		_, err := ctx.EffectiveMessage.Reply(b, "failed to edit Page: "+err.Error(), &gotgbot.SendMessageOpts{ParseMode: "html"})
+		_, err := ctx.EffectiveMessage.Reply(b, "failed to getViews: "+err.Error(), &gotgbot.SendMessageOpts{ParseMode: "html"})
 		if err != nil {
 			return fmt.Errorf("failed to send getViews error message : %w", err)
 		}
