@@ -52,7 +52,7 @@ A detailed usage guide can be found here : [Telegraph Page](https://telegra.ph/T
 - `TOKEN` - Get this from [@BotFather](https://t.me/BotFather)
 - `DATABASE_URL` - Postgres Database URL. If you are deploying on Heroku, they will automatically provide it.
 
-#### Non-Manadatory Vars
+#### Non-Mandatory Vars
 
 - `OWNER_ID` - Your Telegram ID [Recommended To Set]
 - `LOG_CHAT` - Log errors to a Telegram Group. Must be a Chat ID of format `-10012345678`.
