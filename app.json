@@ -11,12 +11,6 @@
       "buildpacks": [{
       "url": "heroku/go"
     }],
-    "formation": {
-      "worker": {
-        "quantity": 1,
-        "size": "free"
-      }
-    },
     "addons": [
         {
            "plan": "heroku-postgresql"
